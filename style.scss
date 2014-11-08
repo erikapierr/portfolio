@@ -1,0 +1,566 @@
+/*
+Theme Name: Erika's Lovely Theme
+Theme URI: http://erikapierre.com;
+Description: Erika's theme. Based off http://graphicburger.com/elegant-free-html-psd-template/.
+Version: 1.0
+Author: Erika Pierre
+Author URI: http://erikapierre.com
+*/
+
+
+/*Imports*/
+@import "scss/font-awesome";
+
+/*Colours */
+$lightgrey: #eee; 
+$orange: rgb(212,175,55);
+
+/* =============================================================================
+                   Normalize, border box and clearfix
+   ========================================================================== */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.clearfix:after {
+   content: " ";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+img {
+  max-width:100%;
+}
+
+/* Global Classes / Wordpress Specific */
+.aligncenter    { text-align: center; margin: 0 auto; }
+.alignleft      { float: left; }
+.alignright     { float: right; }
+img.alignleft     { padding-right: 5px;}
+img.alignright    { padding-left: 5px; }
+.clear        { width:100%; float:left; clear:both;}
+
+
+
+/* =============================================================================
+                   Default Styling
+   ========================================================================== */
+html,
+body{
+	height:100%;
+}
+body {
+  color: rgba(2, 23, 37, 0.7);
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.wrapper {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.container {
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.content, .blog-argh {
+	width: 60%;
+  	margin: 0 auto;
+  }
+ .content {
+	clear: both;
+	text-align: center;
+}
+
+.lightbox-overlay {
+  height: 100%;
+  width: 100%;
+  background: #000;
+}
+
+//front-page blog styles
+.blog-argh {
+	padding-top:5.5555rem;
+	font-size:1rem;
+	margin-bottom:5.5555rem;
+}
+
+.blog-post-without-thumbnail {
+	width: 100%;
+}
+
+.blog-post-without-thumbnail,
+.blog-post-with-thumb {
+	background: $lightgrey;
+	padding: 2.5% 5%;
+}
+
+.blog-post-with-thumb,
+.blog-post-img {
+	float:left;
+	width: 50%;
+}
+
+.blog-the-date {
+	font-size: 0.8rem;
+	text-transform:uppercase;
+}
+
+//skill styles
+.skill {
+	width: 14rem;
+	float: left;
+	background: $lightgrey;
+	margin: 0.1rem;
+	padding:0.25rem;
+	p {
+		font-size: 0.8rem;
+	}
+	h2 {
+		display: inline-block;
+	}
+}
+
+//front-page portfolio piece styles
+.portfolio-piece {
+	width:33%;
+	float: left;
+	img {
+		width: 100%;
+		padding-right: 1%;
+	}
+	&:last-of-type img {
+		padding-right: 0;
+	}
+}
+
+.portfolio-caption {
+	display: none;
+}
+
+.read-more-button {
+	padding: 1rem 2.5rem;
+	border: 1px solid black;
+	background:none;
+	font-size: 1rem;
+}
+
+//portfolio archive styles 
+.entry-footer {
+  margin-bottom: 5%;
+}
+
+.portfolio-third {
+  width:33%;
+  float: left;
+  position: relative;
+  img {
+    width: 100%;
+  }
+  .entry-title {
+    position: absolute;
+    bottom: 0;
+    padding: 2%;
+    font-size: 1.4em; 
+  }
+}
+
+.portfolio-full {
+  z-index: 99999;
+  background: rgba(0,0,0,0.8);
+  height:100%;
+  width:100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5%;
+  // img {
+  //   position: fixed;
+  //   top: 50%;
+  //   width: 50%;
+  //   transform-origin: 50% 50%;
+  // }
+}
+
+.content-and-footer {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+}
+/* links */
+a {
+  color: $orange;
+    text-decoration: none;
+}
+
+footer a {
+  color:rgba(2, 23, 37, 0.7);
+  transition: color 1s;
+  .fa::before {
+    color: $orange;
+  }
+  &:hover {
+    color: $orange;
+  }
+}
+
+/* paragraphs */
+p {
+  line-height: 1.5;
+}
+
+/*blockquotes*/
+blockquote {
+  background: #F7F7F7;
+  margin:0;
+  padding:20px;
+}
+  blockquote p {
+    margin-top: 0;
+  }
+
+/*tables*/
+table td {
+  padding:10px;
+}
+table tr td:first {
+  padding-right: 0;
+}
+
+/*def lists*/
+dt {
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+dd {
+  padding:10px;
+  margin-left: 10px;
+}
+
+/*lists*/
+ul li,ol li {
+  padding:3px;
+}
+
+/*PRE*/
+
+pre {
+  background: #F7F7F7;
+  padding:10px;
+  border-radius: 4px;
+  border:1px solid #ccc;
+}
+/* =============================================================================
+                   Sidebar
+   ========================================================================== */
+.sidebar {
+  width:30%;
+  float:left;
+}
+  .sidebar ul {
+    margin:0;
+    padding:0;
+  }
+    .sidebar ul li {
+      list-style: none;
+    }
+
+
+/* =============================================================================
+                   Header
+   ========================================================================== */
+
+header {
+	background-image:url(img/Imogene-Pass.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	overflow:hidden;
+	width: 100%;
+	padding: 250px 0;
+	height: auto;
+	a {
+		color: #294440;
+		transition: color 2s;
+		&:hover {
+			color:darken(white,10%);
+		}
+	}
+}
+
+.header-fader-1, 
+.header-fader-2 {
+	position:absolute;
+	width:50%;
+	top:0;
+}
+.header-fader-2 {
+	left:0;
+	background: -webkit-linear-gradient(left, white, rgba(255,255,255,0)); /* For Safari 5.1 to 6.0 */
+ 	background: -o-linear-gradient(right, white, rgba(255,255,255,0)); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(right, white, rgba(255,255,255,0)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, white, rgba(255,255,255,0)); /* Standard syntax */
+}
+
+.header-fader-1 {
+	right:0;
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0), white); /* For Safari 5.1 to 6.0 */
+ 	background: -o-linear-gradient(right, rgba(255,255,255,0), white); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(right, rgba(255,255,255,0), white); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, rgba(255,255,255,0), white); /* Standard syntax */
+}
+
+.header-container {
+	position: relative;
+}
+
+.h1-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  letter-spacing: 2px;
+}
+
+h1 {
+	text-align: center;
+	font-size: 5rem;
+	font-weight: 300;	
+}
+
+h2 {
+	text-align: center;
+	font-size: 3rem;
+	padding-top: 5.555rem;
+}
+
+p {
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+
+/* =============================================================================
+                   Footer
+   ========================================================================== */
+
+footer {
+  clear:both;
+  background: #eee;
+  padding: 25px;
+  position: relative;
+}
+
+.copyright p {
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 75%;
+}
+
+/* =============================================================================
+                   Navigation
+   ========================================================================== */
+  .menu-container ul {
+    margin:0;
+    padding: 0;
+    display: block;
+    text-align: center;
+    list-style-type: none;
+    width: 100%;
+    height:100%;
+     li {
+      display:inline;
+      margin-right: 5%;
+      position: relative;
+      top: 50%;
+      a {
+        color:white;
+      }
+    }
+  }
+
+  .menu-title {
+  	text-transform: uppercase;
+  }
+
+  .hidden {
+  	display: none;
+  }
+
+  .visible {
+  	display: block;
+  }
+
+  button.menu-button {
+  	position: fixed;
+	top:5%;
+	right:2%;
+	background:none;
+	border:none;
+	&:focus {
+		outline:1px solid white;
+	}
+  }
+
+.menu-container {
+	position: fixed;
+	top:0;
+	left:0;
+	height:100px;
+	width: 100%;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+}
+
+.close-menu-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: white;
+	border:1px solid white;
+	display: inline-block;
+	padding: 0.25%;
+	margin:4% 3% 0 0;
+	background: none;
+	max-width: 5%;
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+/* =============================================================================
+                   Comment Styling
+   ========================================================================== */
+
+#comments .navigation { padding:0 0 18px; }
+h3#comments-title, h3#reply-title {
+  color:#000000;
+  font-weight:700;
+  font-size:20px;
+  margin-bottom:0;
+}
+h3#comments-title { padding:24px 0; }
+.commentlist li.comment {
+  border-bottom:1px solid #e7e7e7;
+  line-height:24px;
+  position:relative;
+  clear:both;
+  margin:0 0 24px;
+  padding:0 0 0 56px;
+}
+.commentlist li:last-child {
+  border-bottom:none;
+  margin-bottom:0;
+}
+#comments .comment-body ul, #comments .comment-body ol { margin-bottom:18px; }
+#comments .comment-body p:last-child { margin-bottom:6px; }
+#comments .comment-body blockquote p:last-child { margin-bottom:24px; }
+.commentlist ol { list-style:decimal; }
+.commentlist .avatar {
+  position:absolute;
+  top:4px;
+  left:0;
+}
+.comment-author cite {
+  color:#000000;
+  font-style:normal;
+  font-weight:700;
+}
+.comment-author .says { font-style:italic; }
+.comment-meta {
+  font-size:12px;
+  margin:0 0 5px;
+}
+.comment-meta a:link, .comment-meta a:visited {
+  color:#888888;
+  text-decoration:none;
+}
+.reply {
+  font-size:12px;
+  padding:0 0 24px;
+}
+.reply a, a.comment-edit-link { color:#888888; }
+.commentlist .children li {
+  border:none;
+  margin:0;
+}
+#comments .pingback {
+  margin-bottom:18px;
+  padding-bottom:18px;
+  border-bottom:1px solid #e7e7e7;
+}
+.commentlist li.comment+li.pingback { margin-top:-6px; }
+#comments .pingback p {
+  color:#888888;
+  font-size:12px;
+  line-height:18px;
+  display:block;
+  margin:0;
+}
+#comments .pingback .url {
+  font-style:italic;
+  font-size:13px;
+}
+input[type=submit] { color:#333333; }
+#respond {
+  margin-top:24px;
+  border-top:1px solid #e7e7e7;
+  overflow:hidden;
+  position:relative;
+}
+#respond .comment-notes { margin-bottom:1em; }
+.form-allowed-tags { line-height:1em; }
+.children #respond { margin:0 48px 0 0; }
+h3#reply-title { margin:18px 0; }
+#comments-list #respond { margin:0 0 18px; }
+#cancel-comment-reply-link {
+  font-size:12px;
+  line-height:18px;
+  font-weight:400;
+}
+#respond .required {
+  color:#ff4b33;
+  font-weight:700;
+}
+#respond label {
+  color:#888888;
+  font-size:12px;
+}
+#respond input {
+  width:98%;
+  margin:0 0 9px;
+}
+#respond textarea { width:98%; }
+#respond dt, #respond dd {
+  color:#888888;
+  font-size:12px;
+  line-height:18px;
+}
+#respond dd code { font-size:11px; }
+#respond .form-submit { margin:0 0 24px; }
+#respond .form-submit input {
+  width:auto;
+  font-size:14px;
+}
+#respond dl { margin:0 0 10px; }
+#respond dt {
+  display:inline;
+  font-weight:400;
+}
+#respond dd { display:inline; }
+p.form-allowed-tags, .nocomments { display:none; }
+.commentlist, .commentlist .children {
+  list-style:none;
+  margin:0;
+}
+#respond p, #comments-list ul #respond { margin:0; }
+
+#wpadminbar {
+	z-index: 9999  !important;
+}
