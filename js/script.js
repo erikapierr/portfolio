@@ -96,6 +96,7 @@ $(document).ready(function(){
 			    'height': '100%'
 			});
 			makeVisible($(this).parents('.portfolio-third').find('.portfolio-full'));
+			makeVisible($(this).parents('.portfolio-third').find('.show-content-and-footer'));
 			portfolioPieceWidth = $(this).parents('.portfolio-third').find('.portfolio-full').find('img').css('width');
 			portfolioPieceSplit = portfolioPieceWidth.split("px");
 			portfolioPieceNumber = Number(portfolioPieceSplit[0]);
