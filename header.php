@@ -28,6 +28,9 @@
 		        <?php bloginfo( 'name' ); ?>
 		      	</a>
 		    </h1>
+		    <h2>
+		    	<?php echo get_bloginfo('description'); ?>
+		    </h2>
 		</div> <!-- /.header-container -->
     </div>	<!-- /.h1-container -->
   	<button class="menu-button">
@@ -36,8 +39,19 @@
     <div class="menu-container hidden">	
 	    <?php wp_nav_menu( array(
 	      'container' => false,
-	      'menu' => 'header'
+	      'theme_location' => 'primary'
 	    )); ?>
+	    <?php if ( is_page('56')) 
+	    	{
+	    		if (has_nav_menu('secondary'))
+	    			{
+	    				wp_nav_menu(array(
+	    					'container' => false,
+	    					'theme_location' => 'secondary'
+	    					));
+	    			}
+	    	}
+	    ?>
 	    <button class="close-menu-button">Close</button>
   </div> <!-- /.menu-outer-container -->
 </header><!--/.header-->

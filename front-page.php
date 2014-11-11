@@ -1,10 +1,9 @@
-<?php //index.php is the last resort template, if no other templates match ?>
 <?php get_header(); ?>
 
 <div class="main">
   <div class="container">
 
-    <div class="content">
+    <div class="frontpage-content" id="about-me">
     <!-- show bio -->
 		<?php $bio = new WP_Query( 'pagename=bio' ); ?>
 		<?php if ( $bio->have_posts() ) : ?>
@@ -14,8 +13,8 @@
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
-	</div> <!-- /.content -->
-	<div class="content">
+	</div> <!-- /.frontpage-content -->
+	<div class="frontpage-content">
 		<!-- show learning blurb -->
 		<?php $learning = new WP_Query( 'pagename=learning' ); ?>
 		<?php if ( $learning->have_posts() ) : ?>
@@ -55,8 +54,8 @@
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		<?php endif; ?>	
-	</div>	<!-- /.content -->
-	<div class="portfolio-pieces"> 
+	</div>	<!-- /.frontpage-content -->
+	<div id="my-portfolio" class="portfolio-pieces clearfix"> 
 		<!-- show portfolio pieces -->
 		<?php $portfolioQuery = new WP_Query(
 			array(
@@ -80,11 +79,13 @@
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>		
-		<p>
-		View More <a href="<?php echo get_permalink(get_page_by_title('portfolio')) ; ?>"><?php echo get_post_type_object('portfolio')->labels->name; ?></a>
-		</p>
-
 	</div><!-- /.portfolio-pieces -->
+		<div class="view-all">
+			<p>
+			View All <a href="<?php echo get_permalink(get_page_by_title('portfolio')) ; ?>"><?php echo get_post_type_object('portfolio')->labels->name; ?></a>
+			</p>
+		</div>
+
 	<div class="blog-argh">
 		<?php $blog = new WP_Query(
 			array(
@@ -106,22 +107,24 @@
 					</div>
 					<div class="blog-post-with-thumb">
 						<p class="blog-the-date"><?php the_date(); ?></p>
-						<h3><?php the_title(); ?></h3>
+						<h3><a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 						<p><?php the_content(); ?></p>
 					</div>
 				<?php else : ?> 
 					<div class="blog-post-without-thumbnail">
-						<p class="blog-the-date"><?php the_date(); ?></p>
-						<h3><?php the_title(); ?></h3>
+						<p class="the-date"><?php the_date(); ?></p>
+						<h3><a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 						<p><?php the_excerpt(); ?></p>
 					</div>	
 				<?php endif; ?>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
-		<p>
-		View More <a href="<?php echo get_permalink(get_page_by_title('blog')) ; ?>"><?php echo get_post_type_object('post')->labels->name; ?></a>
-		</p>
+		<div class="view-all">
+			<p>
+			View All <a href="<?php echo get_permalink(get_page_by_title('blog')) ; ?>"><?php echo get_post_type_object('post')->labels->name; ?></a>
+			</p>
+		</div>
 	</div><!-- /.blog -->
   </div> <!-- /.container -->
 </div> <!-- /.main -->

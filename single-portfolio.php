@@ -13,13 +13,17 @@
             <?php hackeryou_posted_on(); ?>
           </div><!-- .entry-meta -->
 
-          <div class="entry-content">
-            <?php the_content(); ?>
-            <?php wp_link_pages(array(
-              'before' => '<div class="page-link"> Pages: ',
-              'after' => '</div>'
-            )); ?>
-          </div><!-- .entry-content -->
+          <div class="portfolio-single-content clearfix">
+            <?php the_post_thumbnail('full'); ?>
+            <div class="portfolio-single-text">
+              <?php the_content(); ?>
+              <a href="<?php the_field('url'); ?>">View it Live!</a>
+              <?php wp_link_pages(array(
+                'before' => '<div class="page-link"> Pages: ',
+                'after' => '</div>'
+              )); ?>
+            </div>
+          </div><!-- .portfolio-single-content -->
 
           <div class="entry-utility">
             <?php hackeryou_posted_in(); ?>

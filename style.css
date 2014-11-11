@@ -2398,24 +2398,42 @@ body {
   font-size: 16px;
 }
 
+p {
+  text-align: left;
+}
+
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-.content, .blog-argh {
+.the-date {
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.content, .blog-argh, .frontpage-content {
   width: 60%;
   margin: 0 auto;
 }
 
-.content {
+.content, .frontpage-content {
   clear: both;
+}
+
+.frontpage-content p,
+.frontpage-content h3 {
   text-align: center;
+}
+
+.entry-utility,
+.entry-meta {
+  padding: 1% 0;
 }
 
 .lightbox-overlay {
@@ -2425,9 +2443,10 @@ body {
 }
 
 .blog-argh {
-  padding-top: 5.5555rem;
-  font-size: 1rem;
   margin-bottom: 5.5555rem;
+}
+.blog-argh p {
+  font-size: 1rem;
 }
 
 .blog-post-without-thumbnail {
@@ -2446,11 +2465,6 @@ body {
   width: 50%;
 }
 
-.blog-the-date {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-
 .skill {
   width: 14rem;
   float: left;
@@ -2465,8 +2479,14 @@ body {
   display: inline-block;
 }
 
+.view-all p {
+  text-align: center;
+  margin-top: 1.5%;
+  font-style: italic;
+}
+
 .portfolio-piece {
-  width: 33%;
+  width: 33.3%;
   float: left;
 }
 .portfolio-piece img {
@@ -2488,17 +2508,119 @@ body {
   font-size: 1rem;
 }
 
-.entry-footer {
+article.post {
+  text-align: left;
   margin-bottom: 5%;
+}
+article.post:first-of-type {
+  margin-top: 5%;
+}
+article.post h3 {
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 0;
+}
+article.post p {
+  font-size: 1rem;
+}
+article.post footer {
+  font-style: italic;
+  padding: 1.5%;
+}
+article.post footer a {
+  color: #d4af37;
+}
+
+.entry-footer {
+  font-size: .75rem;
+  padding: 10px;
+}
+
+.content-and-footer {
+  position: absolute;
+  bottom: 0;
+}
+.content-and-footer a {
+  color: #d4af37;
+}
+
+.show-content-and-footer,
+.hide-content-and-footer {
+  background: #bbbbbb;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.show-content-and-footer {
+  padding: 1%;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+}
+
+.hide-content-and-footer {
+  padding: 0.75%;
+  position: relative;
+  top: 1%;
+  left: 97%;
+  transform: translateX(-50%);
+}
+
+.go-left,
+.go-right,
+.lightbox-close {
+  cursor: pointer;
+  font-size: 1.5em;
+  position: absolute;
+  padding: 1%;
+  margin: 1%;
+  color: white;
+  background: #333;
+  border: none;
+}
+
+.go-left {
+  top: 50%;
+  left: 0;
+}
+
+.go-right {
+  top: 50%;
+  right: 0;
+}
+
+.lightbox-close {
+  top: 0;
+  right: 0;
+}
+
+.entry-content,
+.portfolio-single-content {
+  background: #eeeeee;
+  padding: 1.5%;
+}
+.entry-content p:last-of-type,
+.portfolio-single-content p:last-of-type {
+  margin-bottom: 0;
+}
+.entry-content p:first-of-type,
+.portfolio-single-content p:first-of-type {
+  margin-top: 0;
 }
 
 .portfolio-third {
   width: 33%;
   float: left;
   position: relative;
+  cursor: pointer;
 }
 .portfolio-third img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 75%;
+  margin: 0 auto;
+  display: block;
 }
 .portfolio-third .entry-title {
   position: absolute;
@@ -2508,8 +2630,9 @@ body {
 }
 
 .portfolio-full {
+  cursor: default;
   z-index: 99999;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.92);
   height: 100%;
   width: 100%;
   position: fixed;
@@ -2517,13 +2640,25 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 5%;
+}
+.portfolio-full .lightbox-inner {
+  height: 100%;
+  margin: 5% auto 0 auto;
+  display: block;
+}
+.portfolio-full .lightbox-inner img {
+  max-height: 100%;
 }
 
-.content-and-footer {
-  position: absolute;
-  bottom: 0;
-  width: 90%;
+.portfolio-single-content img {
+  width: 50%;
+  float: left;
+  padding: 1%;
+}
+.portfolio-single-content .portfolio-single-text {
+  width: 50%;
+  float: left;
+  padding: 1%;
 }
 
 /* links */
@@ -2621,12 +2756,16 @@ header {
   padding: 250px 0;
   height: auto;
 }
+header h2 {
+  padding-top: 0;
+  margin-top: 0;
+}
 header a {
   color: #294440;
   transition: color 2s;
 }
 header a:hover {
-  color: #e6e6e6;
+  color: aliceblue;
 }
 
 .header-fader-1,
@@ -2676,6 +2815,11 @@ h1 {
   text-align: center;
   font-size: 5rem;
   font-weight: 300;
+  transition: transform 1s;
+  margin-bottom: 0.25rem;
+}
+h1:hover {
+  transform: scale(1.1);
 }
 
 h2 {
@@ -2699,6 +2843,14 @@ footer {
   position: relative;
 }
 
+.page-footer p {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+.page-footer .fa {
+  padding-right: .5rem;
+}
+
 .copyright p {
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
@@ -2709,25 +2861,6 @@ footer {
 /* =============================================================================
                    Navigation
    ========================================================================== */
-.menu-container ul {
-  margin: 0;
-  padding: 0;
-  display: block;
-  text-align: center;
-  list-style-type: none;
-  width: 100%;
-  height: 100%;
-}
-.menu-container ul li {
-  display: inline;
-  margin-right: 5%;
-  position: relative;
-  top: 50%;
-}
-.menu-container ul li a {
-  color: white;
-}
-
 .menu-title {
   text-transform: uppercase;
 }
@@ -2755,10 +2888,39 @@ button.menu-button:focus {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100px;
   width: 100%;
+  height: 4em;
   background: rgba(0, 0, 0, 0.8);
   z-index: 99999;
+  line-height: 2;
+}
+.menu-container ul {
+  margin: 0;
+  display: block;
+  text-align: center;
+  list-style-type: none;
+  width: 100%;
+}
+.menu-container ul:only-of-type {
+  height: 100%;
+  padding: 0 0 1.5em 0;
+}
+.menu-container ul:not(:only-of-type) {
+  height: 50%;
+  padding: 0 0 0.5em 0;
+  line-height: 0.5em;
+}
+.menu-container ul:not(:only-of-type):last-of-type {
+  font-size: 0.85rem;
+}
+.menu-container ul li {
+  display: inline;
+  margin-right: 5%;
+  position: relative;
+  top: 50%;
+}
+.menu-container ul li a {
+  color: white;
 }
 
 .close-menu-button {
@@ -2769,7 +2931,7 @@ button.menu-button:focus {
   border: 1px solid white;
   display: inline-block;
   padding: 0.25%;
-  margin: 4% 3% 0 0;
+  margin: 2% 3% 0 0;
   background: none;
   max-width: 5%;
   font-size: 1rem;

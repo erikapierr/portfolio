@@ -23,20 +23,33 @@
 					<?php the_post_thumbnail('full'); ?>
 				</div>
 				<div class="portfolio-full hidden">
-					<?php the_post_thumbnail('full'); ?>
-					<div class="content-and-footer">
-						<section class="entry-content">
-							<?php the_content('Continue reading <span class="meta-nav">&rarr;</span>'); ?>
-							<?php wp_link_pages( array(
-			          'before' => '<div class="page-link"> Pages:',
-			          'after' => '</div>'
-			        )); ?>
-						</section><!-- .entry-content -->
-						<footer class="entry-footer">
-							<p><?php the_tags('Tags: ', ', ', '<br>'); ?> Posted in <?php the_category(', '); ?></p>
-			        		<p><?php edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?></p>
-						</footer>
-					</div><!-- /.content-and-footer hidden -->
+					<div class="lightbox-inner">
+						<?php the_post_thumbnail('full'); ?>
+						<button class="show-content-and-footer">Description</button>
+						<button class="go-left">&larr;</button>
+						<button class="go-right">&rarr;</button>
+						<button class="lightbox-close">X</button>
+						<div class="content-and-footer hidden">
+							<section class="entry-content">
+							<button class="hide-content-and-footer">
+								[x]
+							</button>
+								<?php the_content('<span class="meta-nav">&rarr;</span>'); ?>
+								<?php wp_link_pages( array(
+				          'before' => '<div class="page-link"> Pages:',
+				          'after' => '</div>'
+				        	)); ?>
+							</section><!-- .entry-content -->
+							<footer class="entry-footer">
+								<p>
+									<a href="<?php the_field('url'); ?>">View it live!</a>
+								</p>
+								<p>
+									<?php the_tags('Tags: ', ', ', '<br>'); ?> Posted in <?php the_category(', '); ?>
+								</p>
+							</footer>
+						</div><!-- /.content-and-footer hidden -->
+					</div><!--/.lightbox-inner -->
 				</div> <!-- /.portfolio-full hidden -->
 			</article><!-- #post-## -->
 		</div><!-- /.portfolio-third -->

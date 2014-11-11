@@ -58,6 +58,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
+p {
+  text-align: left;
+}
 
 .wrapper {
 	max-width: 1400px;
@@ -65,19 +68,36 @@ body {
 }
 
 .container {
-  max-width:1200px;
+  max-width:1400px;
   margin:0 auto;
 }
 
-.content, .blog-argh {
+  .the-date {
+    font-size: .8rem;
+    text-transform: uppercase;
+  }
+
+.content, .blog-argh, .frontpage-content {
 	width: 60%;
   	margin: 0 auto;
   }
- .content {
+ .content, .frontpage-content {
 	clear: both;
-	text-align: center;
 }
 
+.frontpage-content {
+  p,
+  h3 {
+    text-align: center;
+  }
+}
+
+.entry-utility,
+.entry-meta {
+  padding: 1% 0;
+}
+
+//lightbox
 .lightbox-overlay {
   height: 100%;
   width: 100%;
@@ -86,9 +106,10 @@ body {
 
 //front-page blog styles
 .blog-argh {
-	padding-top:5.5555rem;
-	font-size:1rem;
 	margin-bottom:5.5555rem;
+  p {
+    font-size: 1rem;
+  }
 }
 
 .blog-post-without-thumbnail {
@@ -107,11 +128,6 @@ body {
 	width: 50%;
 }
 
-.blog-the-date {
-	font-size: 0.8rem;
-	text-transform:uppercase;
-}
-
 //skill styles
 .skill {
 	width: 14rem;
@@ -128,8 +144,15 @@ body {
 }
 
 //front-page portfolio piece styles
+.view-all {
+  p {
+    text-align: center;
+    margin-top: 1.5%;
+    font-style: italic;
+  }
+}
 .portfolio-piece {
-	width:33%;
+	width:33.3%;
 	float: left;
 	img {
 		width: 100%;
@@ -151,17 +174,123 @@ body {
 	font-size: 1rem;
 }
 
+//blog page styles
+
+article.post {
+  text-align: left;
+  margin-bottom: 5%;
+  &:first-of-type {
+    margin-top: 5%;
+  }
+  h3 {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 1rem;  
+  }
+    footer {
+      font-style: italic;
+      padding: 1.5%;
+      a {
+      color: $orange; 
+    }
+  }
+}
+
 //portfolio archive styles 
 .entry-footer {
-  margin-bottom: 5%;
+  font-size: .75rem;
+  padding: 10px;
 }
+
+.content-and-footer {
+  position: absolute;
+  bottom: 0;
+  a {
+    color: $orange;
+  }
+}
+
+.show-content-and-footer,
+.hide-content-and-footer {
+  background: darken($lightgrey,20%);
+  border:none;
+  border-radius: 0.4rem;
+}
+
+.show-content-and-footer {
+  padding: 1%;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  right:50%;  
+  transform:translateX(-50%);
+}
+
+.hide-content-and-footer {
+  padding: 0.75%;
+  position: relative;
+  top: 1%;
+  left: 97%;
+  transform: translateX(-50%);
+}
+
+.go-left,
+.go-right,
+.lightbox-close {
+  cursor: pointer;
+  font-size: 1.5em;
+  position: absolute;
+  padding: 1%;
+  margin: 1%;
+  color: white;
+  background: #333;
+  border: none;
+}
+
+.go-left {
+  top: 50%;
+  left: 0;
+}
+
+.go-right {
+  top: 50%;
+  right: 0;
+}
+
+.lightbox-close {
+  top: 0;
+  right: 0;
+}
+
+.entry-content,
+.portfolio-single-content {
+  background:$lightgrey;
+  padding: 1.5%;
+  p {
+    // padding: 10px;
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
 
 .portfolio-third {
   width:33%;
   float: left;
   position: relative;
+  cursor: pointer;
   img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 75%;
+    margin: 0 auto;
+    display: block;
   }
   .entry-title {
     position: absolute;
@@ -172,8 +301,9 @@ body {
 }
 
 .portfolio-full {
+  cursor: default;
   z-index: 99999;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.92);
   height:100%;
   width:100%;
   position: fixed;
@@ -181,20 +311,30 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 5%;
-  // img {
-  //   position: fixed;
-  //   top: 50%;
-  //   width: 50%;
-  //   transform-origin: 50% 50%;
-  // }
+  .lightbox-inner {
+    height: 100%;
+    margin: 5% auto 0 auto;
+    display: block;
+    img {
+      max-height: 100%;
+    }
+  }
 }
 
-.content-and-footer {
-  position: absolute;
-  bottom: 0;
-  width: 90%;
+//portfolio single page
+.portfolio-single-content {
+  img {
+    width: 50%;
+    float: left;
+    padding: 1%;
+  }
+  .portfolio-single-text {
+    width: 50%;
+    float: left;
+    padding: 1%;
+  }
 }
+
 /* links */
 a {
   color: $orange;
@@ -286,11 +426,15 @@ header {
 	width: 100%;
 	padding: 250px 0;
 	height: auto;
+  h2 {
+    padding-top: 0;
+    margin-top: 0;
+  }
 	a {
 		color: #294440;
 		transition: color 2s;
 		&:hover {
-			color:darken(white,10%);
+			color:aliceblue;
 		}
 	}
 }
@@ -333,6 +477,11 @@ h1 {
 	text-align: center;
 	font-size: 5rem;
 	font-weight: 300;	
+  transition: transform 1s;
+  margin-bottom: 0.25rem; 
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 h2 {
@@ -357,6 +506,16 @@ footer {
   position: relative;
 }
 
+.page-footer {
+  p {
+    font-size:1rem;
+    margin: 0.2rem 0;
+  }
+  .fa {
+    padding-right: .5rem;
+  }
+}
+
 .copyright p {
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
@@ -367,26 +526,7 @@ footer {
 /* =============================================================================
                    Navigation
    ========================================================================== */
-  .menu-container ul {
-    margin:0;
-    padding: 0;
-    display: block;
-    text-align: center;
-    list-style-type: none;
-    width: 100%;
-    height:100%;
-     li {
-      display:inline;
-      margin-right: 5%;
-      position: relative;
-      top: 50%;
-      a {
-        color:white;
-      }
-    }
-  }
-
-  .menu-title {
+   .menu-title {
   	text-transform: uppercase;
   }
 
@@ -413,10 +553,39 @@ footer {
 	position: fixed;
 	top:0;
 	left:0;
-	height:100px;
 	width: 100%;
+  height: 4em;
 	background: rgba(0,0,0,0.8);
 	z-index: 99999;
+  line-height: 2;
+  ul {
+    margin:0;
+    display: block;
+    text-align: center;
+    list-style-type: none;
+    width: 100%;
+    &:only-of-type {
+      height:100%;
+      padding: 0 0 1.5em 0;
+    }
+    &:not(:only-of-type) {
+      height: 50%;
+      padding: 0 0 0.5em 0;
+      line-height: 0.5em;
+      &:last-of-type {
+        font-size: 0.85rem;
+      }
+    }
+     li {
+      display:inline;
+      margin-right: 5%;
+      position: relative;
+      top: 50%;
+      a {
+        color:white;
+      }
+    }
+  }
 }
 
 .close-menu-button {
@@ -427,7 +596,7 @@ footer {
 	border:1px solid white;
 	display: inline-block;
 	padding: 0.25%;
-	margin:4% 3% 0 0;
+	margin:2% 3% 0 0;
 	background: none;
 	max-width: 5%;
 	font-size: 1rem;
