@@ -68,17 +68,19 @@
 			<?php echo get_post_type_object('portfolio')->labels->name; ?>
 		</h2>
 		<?php if ($portfolioQuery->have_posts()) : ?>
-			<?php while ( $portfolioQuery->have_posts() ) : $portfolioQuery->the_post(); ?>
-				<div class="portfolio-piece">
-					<a href="<?php the_permalink(); ?>" title="<?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
-						<?php the_post_thumbnail('large'); ?>
-					</a>
-					<div class="portfolio-caption">
-						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>	
-						<p><?php the_content(); ?></p>
-						</div><!-- /.portfolio-caption -->
-				</div><!-- /.portfolio-piece -->
-			<?php endwhile; ?>
+			<div class="portfolio-piece-box clearfix">
+				<?php while ( $portfolioQuery->have_posts() ) : $portfolioQuery->the_post(); ?>
+					<div class="portfolio-piece">
+						<a href="<?php the_permalink(); ?>" title="<?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+							<?php the_post_thumbnail('large'); ?>
+						</a>
+						<div class="portfolio-caption">
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>	
+							<p><?php the_content(); ?></p>
+							</div><!-- /.portfolio-caption -->
+					</div><!-- /.portfolio-piece -->
+				<?php endwhile; ?>
+			</div>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>		
 	</div><!-- /.portfolio-pieces -->

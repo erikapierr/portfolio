@@ -15,12 +15,12 @@
 		<div class="portfolio-third">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<div class="portfolio-thumb">
-					<h3 class="entry-title">
-			        <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+					<h3 class="entry-title">	        
 			          <?php the_title(); ?>
-			        </a>
 		     	 	</h3>
-					<?php the_post_thumbnail('full'); ?>
+					<a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+						<?php the_post_thumbnail('full'); ?>
+			        </a>
 				</div>
 				<div class="portfolio-full hidden">
 					<div class="lightbox-inner">

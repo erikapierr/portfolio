@@ -2421,6 +2421,16 @@ p {
   width: 60%;
   margin: 0 auto;
 }
+@media all and (max-width: 760px) {
+  .content, .blog-argh, .frontpage-content {
+    width: 70%;
+  }
+}
+@media all and (max-width: 640px) {
+  .content, .blog-argh, .frontpage-content {
+    width: 95%;
+  }
+}
 
 .content, .frontpage-content {
   clear: both;
@@ -2490,16 +2500,30 @@ p {
   font-style: italic;
 }
 
+.portfolio-piece-box {
+  margin: 0 auto;
+  min-width: 33.333%;
+  text-align: center;
+}
+
 .portfolio-piece {
+  display: inline-block;
   width: 33.3%;
-  float: left;
 }
 .portfolio-piece img {
   width: 100%;
+  height: auto;
   padding-right: 1%;
 }
 .portfolio-piece:last-of-type img {
   padding-right: 0;
+}
+@media all and (max-width: 600px) {
+  .portfolio-piece {
+    width: auto;
+    display: block;
+    padding: 1rem;
+  }
 }
 
 .portfolio-caption {
@@ -2551,6 +2575,7 @@ article.post footer a {
 
 .show-content-and-footer {
   background: #bbbbbb;
+  width: 7rem;
   border-radius: 0.4rem;
   border: none;
   padding: 1%;
@@ -2620,14 +2645,22 @@ article.post footer a {
 }
 
 .portfolio-third {
-  width: 33%;
+  min-width: 33%;
+  max-width: 50%;
+  padding: 1rem;
   float: left;
   position: relative;
   cursor: pointer;
 }
+@media all and (max-width: 600px) {
+  .portfolio-third {
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
 .portfolio-third img {
   width: 100%;
-  max-height: 75%;
+  height: auto;
   margin: 0 auto;
   display: block;
 }
@@ -2636,6 +2669,7 @@ article.post footer a {
   bottom: 0;
   padding: 2%;
   font-size: 1.4em;
+  background-color: lightblue;
 }
 
 .portfolio-full {
@@ -2667,6 +2701,7 @@ article.portfolio {
 
 .portfolio-single-content img {
   width: 50%;
+  height: auto;
   float: left;
   padding: 1%;
 }
@@ -2774,6 +2809,12 @@ header {
 header h2 {
   padding-top: 0;
   margin-top: 0;
+  font-size: 2.5rem;
+}
+@media all and (max-width: 600px) {
+  header h2 {
+    font-size: 1.25rem;
+  }
 }
 header a {
   color: #294440;
@@ -2788,29 +2829,30 @@ header a:hover {
   position: absolute;
   width: 50%;
   top: 0;
+  background-image: none;
 }
 
 .header-fader-2 {
   left: 0;
-  background: -webkit-linear-gradient(left, white, rgba(255, 255, 255, 0));
+  background-image: -webkit-linear-gradient(left, white, rgba(255, 255, 255, 0));
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, white, rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(right, white, rgba(255, 255, 255, 0));
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, white, rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(right, white, rgba(255, 255, 255, 0));
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to right, white, rgba(255, 255, 255, 0));
   /* Standard syntax */
 }
 
 .header-fader-1 {
   right: 0;
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), white);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), white);
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, rgba(255, 255, 255, 0), white);
+  background-image: -o-linear-gradient(right, rgba(255, 255, 255, 0), white);
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, rgba(255, 255, 255, 0), white);
+  background-image: -moz-linear-gradient(right, rgba(255, 255, 255, 0), white);
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), white);
   /* Standard syntax */
 }
 
@@ -2835,6 +2877,11 @@ h1 {
 }
 h1:hover {
   transform: scale(1.1);
+}
+@media all and (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
 }
 
 h2 {
@@ -2951,6 +2998,16 @@ button.menu-button:focus {
   max-width: 5%;
   font-size: 1rem;
   text-transform: uppercase;
+}
+@media all and (max-width: 1200px) {
+  .close-menu-button {
+    max-width: 10%;
+  }
+}
+@media all and (max-width: 620px) {
+  .close-menu-button {
+    max-width: 15%;
+  }
 }
 
 /* =============================================================================

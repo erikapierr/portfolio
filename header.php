@@ -38,7 +38,7 @@
 <header>
 	<div class="header-fader header-fader-1"></div>
 	<div class="header-fader header-fader-2"></div>
-	<div class="header-container">
+	<div class="header-container clearfix">
 		<div class="h1-container">
 			<h1>
 		    	<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
