@@ -6,7 +6,7 @@ $(document).ready(function(){
 		$(myClass).removeClass('visible').addClass('hidden');
 	};
 
-//force height of fader divs to match header div
+//check if adminbar is active to set heights of fader divs & set top of menu button
 	headerHeight = $('header').css('height');
 	adminBarHeight = $('#wpadminbar').css('height');
 	if ($('#wpadminbar')) {
@@ -14,10 +14,13 @@ $(document).ready(function(){
 			'height': headerHeight,
 			'top': adminBarHeight
 		});
+		$('button.menu-button').css('top', adminBarHeight);
 	} else {
 		headerHeight = $('header').css('height');
 		$('.header-fader').css('height', headerHeight);
+		$('button.menu-button').css('top', '0');
 	}
+
 //navigation functions
 	$('.menu-button').on('click', function(){
 		makeVisible('.menu-container');

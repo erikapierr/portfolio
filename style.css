@@ -2705,10 +2705,23 @@ article.portfolio {
   float: left;
   padding: 1%;
 }
+@media all and (max-width: 640px) {
+  .portfolio-single-content img {
+    width: 100%;
+  }
+  .portfolio-single-content img:after {
+    clear: both;
+  }
+}
 .portfolio-single-content .portfolio-single-text {
   width: 50%;
   float: left;
   padding: 1%;
+}
+@media all and (max-width: 640px) {
+  .portfolio-single-content .portfolio-single-text {
+    width: 100%;
+  }
 }
 
 /* links */
@@ -2861,11 +2874,21 @@ header a:hover {
 }
 
 .h1-container {
-  position: absolute;
+  width: 100%;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   letter-spacing: 2px;
+  overflow: hidden;
+}
+@media all and (max-width: 736px) {
+  .h1-container {
+    left: 0;
+    transform: translateX(0) translateY(50%);
+  }
 }
 
 h1 {
@@ -2877,6 +2900,7 @@ h1 {
 }
 h1:hover {
   transform: scale(1.1);
+  text-shadow: 2px 2px 2px #294440;
 }
 @media all and (max-width: 600px) {
   h1 {
@@ -2888,6 +2912,11 @@ h2 {
   text-align: center;
   font-size: 3rem;
   padding-top: 5.555rem;
+}
+@media all and (max-width: 800px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 p {
@@ -2936,8 +2965,8 @@ footer {
 }
 
 button.menu-button {
+  top: 0;
   position: fixed;
-  top: 5%;
   right: 2%;
   background: none;
   border: none;
