@@ -1,4 +1,4 @@
-<footer class="page-footer" id="contact-me">
+<footer class="page-footer" id="contact-me" role="contentinfo">
 	<div class="contact-me">
 		<h3>Contact me on...</h3>
 		<p>

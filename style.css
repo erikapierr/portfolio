@@ -2478,14 +2478,27 @@ p {
 .skill-box {
   max-width: 42.6rem;
   margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .skill {
-  width: 14rem;
+  width: 33%;
   float: left;
   background: #eeeeee;
-  margin: 0.1rem;
+  margin-bottom: 0.1rem;
   padding: 0.25rem;
+}
+@media all and (max-width: 900px) {
+  .skill {
+    width: 49.5%;
+  }
+}
+@media all and (max-width: 640px) {
+  .skill {
+    width: 100%;
+  }
 }
 .skill p {
   font-size: 0.8rem;
@@ -2508,7 +2521,7 @@ p {
 
 .portfolio-piece {
   display: inline-block;
-  width: 33.3%;
+  width: 33%;
 }
 .portfolio-piece img {
   width: 100%;
@@ -2645,8 +2658,7 @@ article.post footer a {
 }
 
 .portfolio-third {
-  min-width: 33%;
-  max-width: 50%;
+  width: 33%;
   padding: 1rem;
   float: left;
   position: relative;
@@ -2817,7 +2829,7 @@ header {
   overflow: hidden;
   width: 100%;
   padding: 250px 0;
-  height: auto;
+  height: 45rem;
 }
 header h2 {
   padding-top: 0;
@@ -2842,6 +2854,7 @@ header a:hover {
   position: absolute;
   width: 50%;
   top: 0;
+  height: 45rem;
   background-image: none;
 }
 

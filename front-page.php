@@ -38,7 +38,7 @@
 					<div class="skill">
 					<?php the_post_thumbnail(); ?>
 					<h3>
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<?php the_title(); ?>
 					</h3>	
 					<?php the_content(); ?></div>
 				<?php endwhile; ?>

@@ -34,8 +34,8 @@
 
 
 <body <?php body_class(); ?>>
-<div class="wrapper">
-<header>
+<div class="wrapper" role="main">
+<header role="banner">
 	<div class="header-fader header-fader-1"></div>
 	<div class="header-fader header-fader-2"></div>
 	<div class="header-container clearfix">
